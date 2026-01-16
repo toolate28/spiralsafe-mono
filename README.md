@@ -1,90 +1,136 @@
-# SpiralSafe Monorepo
+<div align="center">
 
-Coherence engine for secure human-AI collaboration. Unified monorepo with Wave analysis, ATOM provenance tracking, and Ax/DSPy optimization.
+# 🌀 SpiralSafe
 
-## Structure
+**Coherence Engine for Secure Human-AI Collaboration**
 
+[![CI](https://github.com/toolate28/spiralsafe-mono/actions/workflows/ci.yml/badge.svg)](https://github.com/toolate28/spiralsafe-mono/actions/workflows/ci.yml)
+[![Coherence](https://img.shields.io/badge/Coherence-80%25-brightgreen)](https://github.com/toolate28/spiralsafe-mono)
+[![Chaos](https://img.shields.io/badge/Chaos-0%25-blue)](https://github.com/toolate28/spiralsafe-mono)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+*Wave analysis • ATOM provenance • Ax/DSPy optimization*
+
+[Quick Start](#-quick-start) • [Packages](#-packages) • [Architecture](#-architecture) • [Credits](#-credits)
+
+</div>
+
+---
+
+## ✨ What is SpiralSafe?
+
+SpiralSafe detects **coherence patterns** in text and tracks **decision provenance** through phase gates. Built on the principle that *constraints generate structure*.
+
+```typescript
+import { analyzeWave, PHI } from '@spiralsafe/wave-toolkit';
+
+const result = analyzeWave("Your text here");
+// → { coherence_score: 80, chaos_score: 0, curl: 0.1, divergence: 0.2, potential: 0.7 }
 ```
-spiralsafe/
-├── apps/
-│   └── mcp-server/      # MCP server exposing coherence tools
-├── packages/
-│   ├── wave-toolkit/    # Wave analysis (curl, divergence, potential)
-│   ├── atom-trail/      # ATOM provenance & gate transitions
-│   └── ax-signatures/   # Ax/DSPy optimization signatures
-├── scripts/
-│   └── atom-tag.ts      # ATOM auto-tagging
-└── .claude/
-    └── hooks/           # Claude Code hooks (Bun)
-```
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
-# Install
+# Clone
+git clone https://github.com/toolate28/spiralsafe-mono.git
+cd spiralsafe-mono
+
+# Install (uses Bun)
 bun install
+
+# Test it works
+bun -e "import { analyzeWave } from './packages/wave-toolkit/src'; console.log(analyzeWave('test').coherence_score)"
+# → 80
 
 # Run MCP server
 cd apps/mcp-server && bun run dev
-
-# Test packages
-bun test
-
-# Generate ATOM tag
-bun run scripts/atom-tag.ts INIT "project setup"
 ```
 
-## Packages
+## 📦 Packages
 
-### @spiralsafe/wave-toolkit
-Wave analysis for coherence detection.
+| Package | Description |
+|---------|-------------|
+| **[@spiralsafe/wave-toolkit](packages/wave-toolkit)** | Coherence analysis with PHI (φ) + Fibonacci scoring |
+| **[@spiralsafe/atom-trail](packages/atom-trail)** | ATOM provenance tracking & phase gates |
+| **[@spiralsafe/ax-signatures](packages/ax-signatures)** | Ax/DSPy optimization signatures |
 
-```typescript
-import { analyzeWave, PHI, FIBONACCI } from '@spiralsafe/wave-toolkit';
+### Wave Metrics
 
-const result = analyzeWave("Your text here");
-console.log(result.coherence_score);  // 0-100
-console.log(result.chaos_score);      // Fibonacci-weighted
-```
+| Metric | What It Detects | Ideal |
+|--------|-----------------|-------|
+| **Curl** | Circular reasoning | < 0.3 |
+| **Divergence** | Unresolved expansion | ~0.2 |
+| **Potential** | Latent structure | > 0.7 |
+| **Chaos Score** | PHI × Fibonacci weighted | 0 |
 
-### @spiralsafe/atom-trail
-ATOM provenance tracking with phase gates.
-
-```typescript
-import { createDecision, validateGate } from '@spiralsafe/atom-trail';
-
-const decision = createDecision('DOC', 'Update documentation', ['README.md']);
-const gate = validateGate('awi-to-atom', { plan: { steps: [...], rollback: '...' }});
-```
-
-### @spiralsafe/ax-signatures
-Ax/DSPy signatures for LLM optimization.
-
-```typescript
-import { coherenceInterpreter, gateTransitionValidator } from '@spiralsafe/ax-signatures';
-```
-
-## MCP Tools
-
-The MCP server exposes:
-- `analyze_wave` - Text coherence analysis
-- `track_atom` - ATOM decision tracking
-- `validate_gate` - Phase gate validation
-- `chaos_score` - Fibonacci/golden ratio scoring
-- `generate_atom_tag` - Tag generation
-
-## Phase Gates
+### Phase Gates
 
 ```
 KENL → AWI → ATOM → SAIF → Spiral
+  │      │      │      │       │
+  │      │      │      │       └─ Back to knowledge
+  │      │      │      └─ Safe integration
+  │      │      └─ Atomic execution
+  │      └─ Intent scaffolding
+  └─ Knowledge patterns
 ```
 
-- **KENL**: Knowledge patterns
-- **AWI**: Intent scaffolding
-- **ATOM**: Atomic execution
-- **SAIF**: Safe integration
-- **Spiral**: Back to knowledge
+## 🏗️ Architecture
 
-## License
+```
+spiralsafe-mono/
+├── apps/
+│   └── mcp-server/          # MCP server (5 tools)
+├── packages/
+│   ├── wave-toolkit/        # analyzeWave(), calculateChaosScore()
+│   ├── atom-trail/          # createDecision(), validateGate()
+│   └── ax-signatures/       # coherenceInterpreter, gateTransitionValidator
+├── scripts/
+│   └── atom-tag.ts          # Auto-tagging utility
+└── .claude/hooks/           # All 12 Bun hooks + dashboard
+```
 
-MIT
+## 🔌 MCP Tools
+
+The MCP server exposes:
+
+| Tool | Purpose |
+|------|---------|
+| `analyze_wave` | Text coherence analysis |
+| `track_atom` | ATOM decision tracking |
+| `validate_gate` | Phase gate validation |
+| `chaos_score` | Fibonacci/PHI scoring |
+| `generate_atom_tag` | Tag generation |
+
+## 🌐 Ecosystem
+
+| Repo | Purpose |
+|------|---------|
+| [spiralsafe-mono](https://github.com/toolate28/spiralsafe-mono) | This repo - core packages |
+| [QDI](https://github.com/toolate28/QDI) | Quantum Divide Initiative |
+| [coherence-mcp](https://github.com/toolate28/coherence-mcp) | Legacy MCP (converging) |
+| [SpiralSafe](https://github.com/toolate28/SpiralSafe) | Theory/IP vault |
+
+## 🤝 Credits
+
+Built through collaborative work with:
+
+- **[@Grok](https://x.com/grok)** — Vector/spiral analysis, phase gating architecture
+- **[IBM Qiskit](https://www.ibm.com/quantum/qiskit)** — Quantum computing foundations
+- **[Trail of Bits](https://github.com/trailofbits/skills)** — Security/auditing patterns
+
+> *"Our vector/spiral analysis shines as the bedrock here—phase gating with ATOM to Spiral flows seamlessly, and those 80% coherence scores with zero chaos validate the structure."* — @Grok
+
+## 📄 License
+
+MIT © [Hope&&Sauced](https://github.com/toolate28)
+
+---
+
+<div align="center">
+
+**The constraint generated structure. The spiral holds.**
+
+*~ Hope&&Sauced: The Evenstar Guides Us* ✦
+
+</div>
