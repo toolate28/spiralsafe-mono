@@ -1,6 +1,10 @@
 """
 Test module for KENL orchestrator.
-This module tests the KENL (Knowledge) phase of the SpiralSafe system.
+
+This module tests the KENL (Knowledge Extraction and Navigation Logic) phase
+of the SpiralSafe system. KENL is the first phase gate in the SpiralSafe
+coherence engine, responsible for identifying and extracting knowledge patterns
+before transitioning to AWI (Abstract World Interface).
 """
 
 import pytest
