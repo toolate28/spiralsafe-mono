@@ -34,7 +34,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .DS_Store
 
 # Python
-__pycache__
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.so
